@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React from 'react'
 
 class Signin extends React.Component {
   constructor(props){
@@ -18,27 +17,27 @@ class Signin extends React.Component {
     this.setState({signInPassword: event.target.value})
   }
 
-  onSubmitSignIn = () => {
-    fetch('http://localhost:8000/signin', {
-      method: 'post',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        email: this.state.signInEmail,
-        password: this.state.signInPassword
-      })
-    })
-      .then(response => response.json())
-      .then(user => {
-        if (user === 'success') {
-          this.props.onRouteChange('home');
-        }
-    })
-  }
+  // onSubmitSignIn = () => {
+  //   fetch('http://localhost:8000/signin', {
+  //     method: 'post',
+  //     headers: {'Content-Type': 'application/json'},
+  //     body: JSON.stringify({
+  //       email: this.state.signInEmail,
+  //       password: this.state.signInPassword
+  //     })
+  //   })
+  //     .then(response => response.json())
+  //     .then(users => {
+  //       if (users === 'success') {
+  //         this.props.onRouteChange('home');
+  //       }
+  //   })
+  // }
 
   render() {
     const { onRouteChange } = this.props;
       return (
-        <article className="center pv4 ma5 mw5 mw6-ns br4 shadow-5 hidden ba b--black-10 mv4">
+        <article className="center mw5 mw6-ns br4 shadow-5 hidden ba b--black-10 mv4">
           <main className="pa4 black-80">
             <form className="measure">
                 <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
@@ -66,9 +65,9 @@ class Signin extends React.Component {
                 </fieldset>
                 <div className="">
                   <input 
-                    onClick={this.onSubmitSignIn}
-                    className="b ph3 pv2 input-reset ba b--white bg-transparent grow pointer f6 dib" 
-                    type="submit" value="Signin" 
+                      onClick={this.onSubmitSignIn}
+                      className="b ph3 pv2 input-reset ba b--white bg-transparent grow pointer f6 dib" 
+                      type="submit" value="Signin" 
                   />
                 </div>
                 <div className="lh-copy mt3">
